@@ -1,0 +1,4 @@
+
+Number of records retrieved: 1
+#	Patient Code	PAT id(SSAM)	Accession	Name	Subtype	Country	Sampling Year	Days from treatment end	Fiebig Stage	Days from treatment start	Days from first Sample	Days from Seroconversion	Days from Infection	HXB2/MAC239 start	HXB2/MAC239 stop	Sequence Length	Organism
+4	1018	13509	AY331289	1018_06	B	UNITED STATES	1997					-10		789	9558	8775	HIV-1
