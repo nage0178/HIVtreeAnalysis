@@ -4,7 +4,7 @@ library(scales)
 library(ggpubr)
 
 # Reads in data
-est <- read.csv("~/HIV_latency_general/data/jones/resultsAllMethods/combine.csv")
+est <- read.csv("~/HIVtreeAnalysis/data/jones/resultsAllMethods/combine.csv")
 
 # Finds the sample time from the sequence names 
 est <- cbind(est, as.numeric(unlist(strsplit(as.character(est$sequence), "_"))[seq(2, dim(est)[1]*2, 2)]))

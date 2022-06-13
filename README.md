@@ -165,3 +165,13 @@ Then run the following scripts.
 ~/HIVtreeAnalysis/treeSimulation/compareVolume/compareVolume.sh
 ```
 
+To make supplemental figure S3, in the ~/HIVtreeAnalysis/treeSimulation/compareModels directory, 
+```
+make
+```
+
+Then run the following scripts. 
+```
+./latency_ODE > manuscript_figure.txt
+Rscript latency_ODE.R
+```
