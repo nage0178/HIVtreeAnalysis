@@ -56,7 +56,7 @@ do
 		done
 
 		# Finds number of constraints
-		constraints=130
+		constraints=110
 
 		# Finds sequences length from files for mcmc tree
 		seqLen=$(head -1 ../mcmctree/${name}_mcmc.fa | awk '{print $2}')
