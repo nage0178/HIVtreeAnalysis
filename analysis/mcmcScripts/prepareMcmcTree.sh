@@ -19,7 +19,7 @@ do
 		do
 
 			# For each gene/parameters combination
-			for line in $(cat ~/HIV_dna_simulator/ref_seq/seq_len.csv)
+			for line in $(cat ~/HIVtreeAnalysis/dnaSimulations/ref_seq/seq_len.csv)
 			do
 
 				# Finds the gene, number of sequences, and sequence length
@@ -37,7 +37,7 @@ do
 					sed -E 's/:[0-9.Ee-]+//g' mcmctree/b${batch}r${rep}a${ali}s${sub}${gene}_rmOG.txt > mcmctree/b${batch}r${rep}a${ali}s${sub}${gene}_mcmc.txt
 	
 					# Adds the number of sequences and sequence length to the top of the fasta file
-					sed "1s/^/${numSeq} ${seqLen} \n/" ~/HIV_dna_simulator/alignments/b${batch}r${rep}a${ali}s${sub}${gene}.fa > mcmctree/b${batch}r${rep}a${ali}s${sub}${gene}_mcmc.fa
+					sed "1s/^/${numSeq} ${seqLen} \n/" ~/HIVtreeAnalysis/dnaSimulations/alignments/b${batch}r${rep}a${ali}s${sub}${gene}.fa > mcmctree/b${batch}r${rep}a${ali}s${sub}${gene}_mcmc.fa
 	
 					# Adds the number of sequences and number of treees to the tree file
 					sed -i "1s/^/${numSeq} 1\n/" mcmctree/b${batch}r${rep}a${ali}s${sub}${gene}_mcmc.txt
