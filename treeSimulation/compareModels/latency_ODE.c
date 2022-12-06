@@ -87,6 +87,8 @@ int main(void) {
   double timesCheckCount[7] = {1, 2, 3, 4, 5, 10, 365}; /* List of times to check population size */
   int timeCheckIndex = 0; /* Index of the next time to check population size */
   int lastTimeIndex =  sizeof(timesCheckCount) / sizeof(timesCheckCount[0]) - 1;
+  double timeART = 300;
+  double setART = 1;
 
   /* Random number */
   double waitTime; /* Exponential waiting time */
@@ -156,7 +158,7 @@ int main(void) {
     totTime = 0;
 
     /* Continue simulating until the last time is reached or there are no viruses or no cells */
-    while (totTime < timesCheckCount[lastTimeIndex] && numVirus + numCellInfect > 0 && numCellUninfect >= 0 && numCellInfect >= 0 && numCellInfect + numCellUninfect > 0) {
+    while (totTime < timesCheckCount[lastTimeIndex] && ((numVirus + numCellInfect > 0 && numCellUninfect >= 0 && numCellInfect >= 0 && numCellInfect + numCellUninfect > 0) || setART == 0)) {
       /* Caluate rates */
       totRate = uninfectedBirth + (uninfectDeath + ((1-probLatent) * (1-probDefect) + probLatent) * uninfectToInfect * numVirus) * numCellUninfect + (infectedDeath + virusBirth) * numCellInfect
       + virusDeath * numVirus + (reactLatent + latCompDeath) * numLatentComp + latIncompDeath * numLatentIncomp;
@@ -182,13 +184,20 @@ int main(void) {
       totTime = totTime + waitTime;
 
       /* Prints population sizes for the first simulation */
-      if (print == 1 && numEvents % 1000000 == 0 && j == 0) {
+      if (print == 1 && (numEvents % 1000000 == 0 ||  (numEvents % 10000 == 0 && setART == 0) ) && j == 0) {
         printf("%f, %ld, %ld, %ld, %ld, %ld \n", totTime, numVirus, numCellInfect, numCellUninfect, numLatentComp, numLatentIncomp);
         //printf("%f, %ld, %ld, %ld, %ld, %ld, %llu \n", totTime, numVirus, numCellInfect, numCellUninfect, numLatentComp, numLatentIncomp, numNodes);
       }
 
       unif = gsl_rng_uniform (r);
       numEvents++;
+
+      if (setART && totTime > timeART) {
+	uninfectToInfect = 0;
+	totTime = timeART;
+	setART = 0;
+
+      }
 
       /* If the time is passed the sample time, record the number of every class */
       if (totTime >= timesCheckCount[timeCheckIndex]) {
