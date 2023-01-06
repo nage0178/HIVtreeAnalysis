@@ -12,10 +12,6 @@ echo batch,rep,ali,sub,gene,run,nodeName,trueDate,nodeDate,lowCI,highCI > mcmctr
 for ((ali=1;ali<=maxAli;ali++));
 do
 	name=b${batch}r${rep}a${ali}s${sub}${gene}
-	if [ $name == b13r1a6s1nef ]
-	then
-		continue
-	fi
 	# For each latent sequence in the alignment
 
 		for line in $(cat mcmctree/b${batch}r${rep}a${ali}s${sub}_seqsL)

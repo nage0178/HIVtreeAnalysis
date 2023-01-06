@@ -13,10 +13,10 @@ tab3 <- table(abs(conver$run1-conver$run2)<.1)
 
 flagRun <- FALSE
 
-if (dim(tab2) > 1 && tab2[1] > 10) {
+if (dim(tab2) > 1 && tab2[1] > 8) {
   flagRun <- TRUE
 }
-if (dim(tab2) > 1 && tab2[1] > 5) {
+if (dim(tab2) > 1 && tab2[1] > 4) {
   flagRun <- TRUE
 }
 if (dim(tab3) > 1 && tab3[1] > 0) {

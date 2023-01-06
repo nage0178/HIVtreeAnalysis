@@ -34,7 +34,7 @@ do
 			lowHPD=$(grep -w t_n${nodeNum} ${outfile} | sed 's/( /(/g' | awk '{print $12}' | sed 's/,//g'| sed 's/(//g')
 			highHPD=$(grep -w t_n${nodeNum} ${outfile} | sed 's/( /(/g' | awk '{print $13}' | sed 's/)//g')
 
-			echo ${batch},${rep},${ali},${sub},${gene},${sampleSize},${run},${line},${trueDate},${mean},${lowHPD},${highHPD} >> mcmctreeSS/b${batch}r${rep}s${sub}${gene}S${sampleSize}_combine.csv
+			echo ${batch},${rep},${ali},${sub},${gene},${sampleSize},${run},${line},${trueDate},${mean},${lowHPD},${highHPD} >> resultsMCMCSS/b${batch}r${rep}s${sub}${gene}S${sampleSize}_combine.csv
 		done
 	done
 done

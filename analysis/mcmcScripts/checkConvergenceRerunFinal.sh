@@ -13,7 +13,7 @@ outfile1=~/HIVtreeAnalysis/analysis/mcmctree/${name}_1/output
 outfile2=~/HIVtreeAnalysis/analysis/mcmctree/${name}_2/output
 
 # For all internal nodes, including the root
-for ((node=131;node<=259;node++));
+for ((node=111;node<=219;node++));
 do
 	# Find the mean time
         mean1=$(grep -w t_n${node} ${outfile1} | sed 's/( /(/g' |  awk '{print $2}')

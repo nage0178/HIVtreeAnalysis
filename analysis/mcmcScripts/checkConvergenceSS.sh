@@ -15,12 +15,12 @@ outfile2=mcmctreeSS/${name}_2/output
 
 if [ $sampleSize == 15 ]
 then
-	nodestart=181
-	nodeend=359
+	nodestart=156
+	nodeend=309
 # For all internal nodes, including the root
 else 
-	nodestart=231
-	nodeend=459
+	nodestart=201
+	nodeend=399
 
 fi
 
