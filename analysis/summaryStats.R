@@ -35,13 +35,18 @@ MSE <- c()
 bias <- c()
 coverage <- c()
 CI_size <- c()
-latentTimes <- unique(dates$trueDate)
+#latentTimes <- unique(dates$trueDate)
+index <- unique(dates$nodeName)
+
 
 # For each latent time
-for (i in latentTimes ) {
+#for (i in latentTimes ) {
+for (i in index ) {
+
   # Find which sequences have this latent time
   # (There should be the same number as there are alignments)
-  currentDate <- which(dates$trueDate == i)
+  currentDate <- which(dates$nodeName == i)
+  #currentDate <- which(dates$trueDate == i)
 
   # Calculate MSE and bias
   MSE <- rbind (MSE, mean (dates$nodeDate[currentDate] - dates$trueDate[currentDate])^2)
@@ -55,6 +60,11 @@ for (i in latentTimes ) {
   }
 }
 
+findTime <- function(x) {
+  as.numeric(x[4])/365
+}
+latentTimes <- unlist(lapply(strsplit(index, "_"), findTime))
+
 if (CI == 1) {
   stats <- cbind(latentTimes, MSE, bias, coverage, CI_size)
   colnames(stats) <- c("latentTime", "MSE", "bias", "coverageProb", "CISize")
@@ -62,6 +72,7 @@ if (CI == 1) {
   stats <- cbind(latentTimes, MSE, bias)
   colnames(stats) <- c("latentTime", "MSE", "bias")
 }
+
 
 print(paste("Correlation:", cor(dates$trueDate, dates$nodeDate)))
 
