@@ -17,7 +17,7 @@ maxSub=3 # Should be 3
 		Rscript summaryStats.R LS/results/${name}_combine.csv summary/${name}_summaryLS.csv 1 &> summary/${name}summaryLS &
 		Rscript summaryStats.R ML/results/${name}_combine.csv summary/${name}_summaryML.csv 0 &> summary/${name}summaryML &
 		Rscript summaryStats.R LR/results/${name}_combine.csv summary/${name}_summaryLR.csv 1 &> summary/${name}summaryLR &
-		Rscript summaryStats.R resultsBound/${name}_combine.csv summary/${name}_summaryBayes.csv 1 &> summary/${name}summaryBayes &
+		Rscript summaryStats.R mcmctree/${name}_combine.csv summary/${name}_summaryBayes.csv 1 &> summary/${name}summaryBayes &
        	done
       done
       wait $!

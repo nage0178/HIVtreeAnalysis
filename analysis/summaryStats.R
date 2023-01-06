@@ -63,7 +63,7 @@ for (i in index ) {
 findTime <- function(x) {
   as.numeric(x[4])/365
 }
-latentTimes <- unlist(lapply(strsplit(index, "_"), findTime))
+latentTimes <- unlist(lapply(strsplit(as.character(index), "_"), findTime))
 
 if (CI == 1) {
   stats <- cbind(latentTimes, MSE, bias, coverage, CI_size)
