@@ -2,7 +2,7 @@
 
 
 maxBatch=20 #20 # Should be 20
-maxRep=5 #5 # Should be 5
+maxRep=5 # Should be 5
 maxSub=3 # Should be 3
 
 # Puts information calculated in R into a csv for each analysis for each gene
@@ -75,6 +75,8 @@ maxSub=3 # Should be 3
     sed -i 's/ /,/g' plots/${gene}_Bayes
     sed -i 's/,,/,/g' plots/${gene}_Bayes
   done
+   # For some reason, R printed out the results on two lines for this run only, so the CI was not displayed. Fixing it manually since it was only a single run
+    sed -i 's/10,5,1,0.03513,0.99285,0.899439861210082,4.92191780822,0.04284359032,-0.00008329228,0.89500000000/10,5,1,0.03513,0.99285,0.899439861210082,4.92191780822,0.04284359032,-0.00008329228,0.89500000000,3.72607187608/g' plots/nef_LS
 
 
 # Puts information calculated in R into a csv for each analysis for each gene

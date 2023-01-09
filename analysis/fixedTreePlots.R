@@ -1,24 +1,24 @@
 library(ggplot2)
 
-ndFiles <- c("~/HIV_latency_general/analysis/ML/results/b3r1s1C1V2_combine.csv",
-             "~/HIV_latency_general/analysis/ML/results/b3r1s1nef_combine.csv",
-             "~/HIV_latency_general/analysis/ML/results/b3r1s1p17_combine.csv",
-             "~/HIV_latency_general/analysis/ML/results/b3r1s1tat_combine.csv")
+ndFiles <- c("~/HIVtreeAnalysis/analysis/ML/results/b3r1s1C1V2_combine.csv",
+             "~/HIVtreeAnalysis/analysis/ML/results/b3r1s1nef_combine.csv",
+             "~/HIVtreeAnalysis/analysis/ML/results/b3r1s1p17_combine.csv",
+             "~/HIVtreeAnalysis/analysis/ML/results/b3r1s1tat_combine.csv")
 
-lsdFiles <- c("~/HIV_latency_general/analysis/LS/results/b3r1s1C1V2_combine.csv",
-              "~/HIV_latency_general/analysis/LS/results/b3r1s1nef_combine.csv",
-              "~/HIV_latency_general/analysis/LS/results/b3r1s1p17_combine.csv",
-              "~/HIV_latency_general/analysis/LS/results/b3r1s1tat_combine.csv")
+lsdFiles <- c("~/HIVtreeAnalysis/analysis/LS/results/b3r1s1C1V2_combine.csv",
+              "~/HIVtreeAnalysis/analysis/LS/results/b3r1s1nef_combine.csv",
+              "~/HIVtreeAnalysis/analysis/LS/results/b3r1s1p17_combine.csv",
+              "~/HIVtreeAnalysis/analysis/LS/results/b3r1s1tat_combine.csv")
 
-jonesFiles <- c("~/HIV_latency_general/analysis/LR/results/b3r1s1C1V2_combine.csv",
-                "~/HIV_latency_general/analysis/LR/results/b3r1s1nef_combine.csv",
-                "~/HIV_latency_general/analysis/LR/results/b3r1s1p17_combine.csv",
-                "~/HIV_latency_general/analysis/LR/results/b3r1s1tat_combine.csv")
+jonesFiles <- c("~/HIVtreeAnalysis/analysis/LR/results/b3r1s1C1V2_combine.csv",
+                "~/HIVtreeAnalysis/analysis/LR/results/b3r1s1nef_combine.csv",
+                "~/HIVtreeAnalysis/analysis/LR/results/b3r1s1p17_combine.csv",
+                "~/HIVtreeAnalysis/analysis/LR/results/b3r1s1tat_combine.csv")
 
-bayesFiles <- c("~/HIV_latency_general/analysis/mcmctree/b3r1s1C1V2_combine.csv",
-                "~/HIV_latency_general/analysis/mcmctree/b3r1s1nef_combine.csv",
-                "~/HIV_latency_general/analysis/mcmctree/b3r1s1p17_combine.csv",
-                "~/HIV_latency_general/analysis/mcmctree/b3r1s1tat_combine.csv")
+bayesFiles <- c("~/HIVtreeAnalysis/analysis/mcmctree/b3r1s1C1V2_combine.csv",
+                "~/HIVtreeAnalysis/analysis/mcmctree/b3r1s1nef_combine.csv",
+                "~/HIVtreeAnalysis/analysis/mcmctree/b3r1s1p17_combine.csv",
+                "~/HIVtreeAnalysis/analysis/mcmctree/b3r1s1tat_combine.csv")
 jones <- c()
 for (i in 1:length(jonesFiles)){
   jones <- rbind(jones, read.csv(jonesFiles[i]))

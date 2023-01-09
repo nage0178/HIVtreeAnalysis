@@ -15,11 +15,11 @@ do
 	sed -i 's/nsample = 30000/nsample = 500000/g' longMcmcPlots/${name}_1.ctl 
 
 	cd ~/HIVtreeAnalysis/analysis/longMcmcPlots/${name}_1
-	~/mcmctl/./mcmctree ../${name}_1.ctl &> output &
+	~/HIVtree/./HIVtree ../${name}_1.ctl &> output &
 
 
 	cd ~/HIVtreeAnalysis/analysis/longMcmcPlots/${name}prior_1
-	~/mcmctl/./mcmctree ../${name}prior_1.ctl &> output & 
+	~/HIVtree/./HIVtree ../${name}prior_1.ctl &> output & 
 
 	cd ../../
 

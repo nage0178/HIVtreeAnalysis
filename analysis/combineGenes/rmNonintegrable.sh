@@ -14,7 +14,7 @@ do
 	do
 		for ((sub=1;sub<=maxSub;sub++));
 		do
-			grep -v ',$' combineGeneFiles/b${batch}r${rep}s${sub}combine.csv  | grep -v -E 6,2,12,1.+_484_ &> rmNAcombineGeneFiles/b${batch}r${rep}s${sub}combine.csv
+			grep -v ',$' combineGeneFiles/b${batch}r${rep}s${sub}combine.csv &> rmNAcombineGeneFiles/b${batch}r${rep}s${sub}combine.csv
 
 		done
 	done
