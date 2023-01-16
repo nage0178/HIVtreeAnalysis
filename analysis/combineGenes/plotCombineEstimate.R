@@ -6,7 +6,7 @@ timeZero <- 3650
 lowerInt <- 0
 upperInt <- 3.695
 
-inFile <- "~/HIVtreeAnalysis/analysis/longMcmcPlots/b1r1a1s1_Node_1_933_2715_3650.csv"
+inFile <- "~/HIVtreeAnalysis/analysis/longMcmcPlots/b1r1a1s1_Node_1_888_2009_3650.csv"
 times<- read.csv(inFile, sep = "\t")
 
 names(times) <- c("C1V2", "nef", "p17", "tat", "C1V2Prior", "nefPrior", "p17Prior", "tatPrior")
@@ -54,8 +54,8 @@ lines(tatPrior, col = "green", lty = 2)
 lines(C1V2Prior, col = "purple", lty = 2)
 lines(nefPrior, col = "red", lty = 2)
 lines(p17Prior, col = "blue", lty = 2)
-abline(v = (3650 - 2715) / 1000)
+abline(v = (3650 - 2009) / 1000)
 
-legend(-0, 3, legend=c("Combined", "C1V2", "Nef", "p17", "tat"),
+legend(3, 3, legend=c("Combined", "C1V2", "Nef", "p17", "tat"),
        col=c("black", "purple", "red", "blue", "green"), lwd=c(1,1,1,1,1), cex=0.8)
 dev.off()

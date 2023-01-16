@@ -35,8 +35,8 @@ LS <- cbind(LS, as.factor(gene))
 colnames(LS)[length(colnames(LS))] <- "gene"
 
 ML <- rbind(C1V2ML, nefML, p17ML, tatML)
-ML <- cbind(ML, NA, NA)
-colnames(ML)[(length(colnames(ML))-1) : length(colnames(ML))] <- c("coverageProb", "CISize")
+ML <- cbind(ML[ ,1:(dim(ML)[2]-1)], NA, NA, ML[dim(ML)[2]])
+colnames(ML)[(length(colnames(ML))-2) : (length(colnames(ML))-1)] <- c("coverageProb", "CISize")
 geneML <- c(rep("C1V2", dim(C1V2ML)[1]), 
           rep("nef", dim(nefML)[1]),
           rep("p17", dim(p17ML)[1]),
@@ -98,9 +98,9 @@ bias_p
 legend1 <- cowplot::get_legend(bias_p_leg)
 leg1 <- as_ggplot(legend1)
 
-mse_p <- ggplot(combResult, aes(factor(analysis), MSE, fill = analysis)) + geom_violin() + facet_grid(~factor(gene,levels =c('all','p17/\ntat','C1V2','nef','p17', 'tat')), scales = "free", space = "free") + theme_half_open() + labs(
+mse_p <- ggplot(combResult, aes(factor(analysis), RMSE, fill = analysis)) + geom_violin() + facet_grid(~factor(gene,levels =c('all','p17/\ntat','C1V2','nef','p17', 'tat')), scales = "free", space = "free") + theme_half_open() + labs(
  # x = "Analysis",
-  y = "MSE\n"
+  y = "RMSE\n"
 ) + theme(legend.position = "none", axis.title.x=element_blank(),
           axis.text.x=element_blank(),
           axis.ticks.x=element_blank(),
