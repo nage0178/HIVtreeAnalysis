@@ -100,7 +100,7 @@ leg1 <- as_ggplot(legend1)
 
 mse_p <- ggplot(combResult, aes(factor(analysis), RMSE, fill = analysis)) + geom_violin() + facet_grid(~factor(gene,levels =c('all','p17/\ntat','C1V2','nef','p17', 'tat')), scales = "free", space = "free") + theme_half_open() + labs(
  # x = "Analysis",
-  y = "RMSE\n"
+  y = "RMSE (years)\n"
 ) + theme(legend.position = "none", axis.title.x=element_blank(),
           axis.text.x=element_blank(),
           axis.ticks.x=element_blank(),
