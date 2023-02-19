@@ -19,7 +19,7 @@ tat_ML <- read.csv("~/HIVtreeAnalysis/analysis/plotsSS/tat_ML")
 p17_Bayes <- read.csv("~/HIVtreeAnalysis/analysis/plotsSS/p17_Bayes")
 p17BayesSS10 <- read.csv("~/HIVtreeAnalysis/analysis/plots/p17_Bayes")
 p17BayesSS10 <-p17BayesSS10[which(p17BayesSS10$sub == 1), ]
-p17BayesSS10 <- cbind(p17BayesSS10[, 1:3], rep(10, dim(p17BayesSS10)[1]), p17BayesSS10[, 4:11])
+p17BayesSS10 <- cbind(p17BayesSS10[, 1:3], rep(10, dim(p17BayesSS10)[1]), p17BayesSS10[, 4:12])
 colnames(p17BayesSS10)[4] <- "sampleSize"
 
 LSD <- rbind(C1V2, nef, p17, tat)
@@ -39,8 +39,8 @@ LR <- cbind(LR, as.factor(gene))
 colnames(LR)[length(colnames(LR))] <- "gene"
 
 ML <- rbind(C1V2_ML, nef_ML, p17_ML, tat_ML)
-ML <- cbind(ML, NA, NA)
-colnames(ML)[(length(colnames(ML))-1) : length(colnames(ML))] <- c("coverageProb", "CISize")
+ML <- cbind(ML[ ,1:(dim(ML)[2]-1)], NA, NA, ML[dim(ML)[2]])
+colnames(ML)[(length(colnames(ML))-2) : (length(colnames(ML))-1)] <- c("coverageProb", "CISize")
 gene <- c(rep("C1V2", dim(C1V2_ML)[1]), 
           rep("nef", dim(nef_ML)[1]),
           rep("p17", dim(p17_ML)[1]),

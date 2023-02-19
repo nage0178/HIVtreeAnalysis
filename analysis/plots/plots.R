@@ -98,7 +98,7 @@ bias_p
 legend1 <- cowplot::get_legend(bias_p_leg)
 leg1 <- as_ggplot(legend1)
 
-mse_p <- ggplot(combResult, aes(factor(analysis), RMSE, fill = analysis)) + geom_violin() + facet_grid(~factor(gene,levels =c('all','p17/\ntat','C1V2','nef','p17', 'tat')), scales = "free", space = "free") + theme_half_open() + labs(
+rmse_p <- ggplot(combResult, aes(factor(analysis), RMSE, fill = analysis)) + geom_violin() + facet_grid(~factor(gene,levels =c('all','p17/\ntat','C1V2','nef','p17', 'tat')), scales = "free", space = "free") + theme_half_open() + labs(
  # x = "Analysis",
   y = "RMSE (years)\n"
 ) + theme(legend.position = "none", axis.title.x=element_blank(),
@@ -109,9 +109,26 @@ mse_p <- ggplot(combResult, aes(factor(analysis), RMSE, fill = analysis)) + geom
   plot.title = element_text(face = "plain",  size = 14)) + scale_color_viridis(discrete = TRUE, option = "H") +
   scale_fill_viridis(discrete = TRUE)   
 
+rmse_p
+
+mse_p <- ggplot(combResult, aes(factor(analysis), MSE, fill = analysis)) + geom_violin() + facet_grid(~factor(gene,levels =c('all','p17/\ntat','C1V2','nef','p17', 'tat')), scales = "free", space = "free") + theme_half_open() + labs(
+  # x = "Analysis",
+  y = "MSE (years squared)\n"
+)  + 
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        panel.border = element_rect(color = "black", fill = NA), 
+        strip.background = element_rect(color = "black"), 
+        plot.title = element_text(face = "plain",  size = 14))+ scale_color_viridis(discrete = TRUE, option = "H") +
+  scale_fill_viridis(discrete = TRUE)   
 mse_p
 
-figure <- ggarrange(bias_p, mse_p, leg1, widths = c(1.5,1.5, .5),
+pdf("~/latency_manuscript/figures/MSE.pdf", width = 7.5, height = 5)
+mse_p
+dev.off()
+
+figure <- ggarrange(bias_p, rmse_p, leg1, widths = c(1.5,1.5, .5),
                     ncol = 3, nrow = 1)
 figure
 
@@ -192,7 +209,7 @@ pdf("~/latency_manuscript/figures/coverage.pdf", width = 7, height = 5)
 coverageP_p_leg
 dev.off()
 
-figure <- ggarrange(mse_p, bias_p, CISize_p, coverageP_p, leg1,
+figure <- ggarrange(rmse_p, bias_p, CISize_p, coverageP_p, leg1,
                     labels = c("a", "b", "c", "d", ""),
                     heights = c( 3, 3, 3, 3, .5),
                     ncol = 1, nrow = 5)
