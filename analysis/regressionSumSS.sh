@@ -10,10 +10,10 @@ maxSub=1 # Should be 3
 # the size of the tree on inferences
   for gene in nef tat p17 C1V2
   do
-	  echo batch,rep,sub,sampleSize,intercept,slope,correlation,latentTime,MSE,bias,coverageProb,CISize > plotsSS/${gene}_LS
-	  echo batch,rep,sub,sampleSize,intercept,slope,correlation,latentTime,MSE,bias,coverageProb,CISize > plotsSS/${gene}_LR
-	  echo batch,rep,sub,sampleSize,intercept,slope,correlation,latentTime,MSE,bias > plotsSS/${gene}_ML
-	  echo batch,rep,sub,sampleSize,intercept,slope,correlation,latentTime,MSE,bias,coverageProb,CISize > plotsSS/${gene}_Bayes
+	  echo batch,rep,sub,sampleSize,intercept,slope,correlation,latentTime,RMSE,bias,coverageProb,CISize,MSE > plotsSS/${gene}_LS
+	  echo batch,rep,sub,sampleSize,intercept,slope,correlation,latentTime,RMSE,bias,coverageProb,CISize,MSE > plotsSS/${gene}_LR
+	  echo batch,rep,sub,sampleSize,intercept,slope,correlation,latentTime,RMSE,bias,MSE > plotsSS/${gene}_ML
+	  echo batch,rep,sub,sampleSize,intercept,slope,correlation,latentTime,RMSE,bias,coverageProb,CISize,MSE > plotsSS/${gene}_Bayes
 	  
       for ((rep=1;rep<=maxRep;rep++));
       do

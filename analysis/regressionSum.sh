@@ -10,10 +10,10 @@ maxSub=3 # Should be 3
 # of the main simulated data
   for gene in nef tat p17 C1V2
   do
-          echo batch,rep,sub,intercept,slope,correlation,latentTime,RMSE,bias,coverageProb,CISize,per_RMSE >plots/${gene}_LS
-          echo batch,rep,sub,intercept,slope,correlation,latentTime,RMSE,bias,per_RMSE>plots/${gene}_ML
-          echo batch,rep,sub,intercept,slope,correlation,latentTime,RMSE,bias,coverageProb,CISize,per_RMSE>plots/${gene}_LR
-          echo batch,rep,sub,intercept,slope,correlation,latentTime,RMSE,bias,coverageProb,CISize,per_RMSE  >plots/${gene}_Bayes
+          echo batch,rep,sub,intercept,slope,correlation,latentTime,RMSE,bias,coverageProb,CISize,MSE > plots/${gene}_LS
+          echo batch,rep,sub,intercept,slope,correlation,latentTime,RMSE,bias,MSE > plots/${gene}_ML
+          echo batch,rep,sub,intercept,slope,correlation,latentTime,RMSE,bias,coverageProb,CISize,MSE > plots/${gene}_LR
+          echo batch,rep,sub,intercept,slope,correlation,latentTime,RMSE,bias,coverageProb,CISize,MSE > plots/${gene}_Bayes
           
       for ((rep=1;rep<=maxRep;rep++));
       do
@@ -79,8 +79,8 @@ maxSub=3 # Should be 3
 
 
 # Puts information calculated in R into a csv for each analysis for each gene
-echo batch,rep,sub,intercept,slope,correlation,latentTime,RMSE,bias,coverageProb,CISize,per_RMSE >plots/combine_Bayes
-echo batch,rep,sub,intercept,slope,correlation,latentTime,RMSE,bias,coverageProb,CISize,per_RMSE >plots/combine_Bayes2
+echo batch,rep,sub,intercept,slope,correlation,latentTime,RMSE,bias,coverageProb,CISize,MSE >plots/combine_Bayes
+echo batch,rep,sub,intercept,slope,correlation,latentTime,RMSE,bias,coverageProb,CISize,MSE >plots/combine_Bayes2
         
 for ((rep=1;rep<=maxRep;rep++));
 do
