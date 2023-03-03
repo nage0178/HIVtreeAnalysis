@@ -1,4 +1,4 @@
-seed = -1
+seed = 657714355
 
 seqfile = seqData.fa 
 treefile = tree.tre

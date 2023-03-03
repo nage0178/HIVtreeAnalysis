@@ -24,7 +24,6 @@ int main (int argc, char **argv) {
 	long int samples = 1000000;
 	long int rejected = 0;
 	int i = 0;
-	double mean[3] = {0,0,0};
 
 	ages = malloc(sizeof(double *) * 3);
 	for (i = 0; i < 3; i++) {
@@ -36,12 +35,8 @@ int main (int argc, char **argv) {
 	printf("rep\tt_ABC\t t_Al\tt_BC\n");
 	while (i < samples) {
 		timeRoot =  rootLower + gsl_ran_gamma(r, alpha, 1/beta);
-		//timeRoot =  gsl_ran_flat(r, .5, 1);
 		assert(timeRoot != 0);
 
-	/*ages[0][i] = timeRoot;
-	i++;	
-	continue; */
 		t_BC= gsl_ran_flat(r, 0, timeRoot);
 		t_lA = gsl_ran_flat(r, 0, timeRoot);
 		
@@ -62,15 +57,5 @@ int main (int argc, char **argv) {
 		printf("%d\t%f\t%f\t %f\n", i, ages[0][i], ages[1][i], ages[2][i]); 
 		i++;
 	}
-
-//	for (i = 0; i < samples; i++) {
-//		//for (int j = 0; j < 1; j++) 
-//		for (int j = 0; j < 3; j++) 
-//			mean[j] += ages[j][i]/samples;
-//
-//	}
-//	printf("Means: %f %f %f\n", mean[0], mean[1], mean[2]);
-//	//printf("Means: %f \n", mean[0]);
-//	printf("Rejected %ld of %ld \n", rejected, samples);
 
 }
